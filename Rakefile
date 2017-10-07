@@ -3,6 +3,7 @@ Dir.glob("*/**/Rakefile").each { |r| import r }
 namespace :dotfiles do
   DOTFILES = Rake::FileList.new("*") do |fl|
     fl.exclude "Rakefile"
+    fl.exclude "README.md"
     fl.exclude { |f| File.directory? f }
   end
 
