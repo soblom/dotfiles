@@ -4,7 +4,7 @@
 
 Configured "from the ground up":
 
- - "Manual" configuration of ZSH, no Frameworks such as "Oh-my-ZSH" or Antigen
+ - "Manual" configuration of ZSH, no Frameworks such as "Oh My-ZSH" or Antigen
  - No Dotfile framework such as YADR
 
 ## Credits
