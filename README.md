@@ -10,3 +10,5 @@ Configured "from the ground up":
 ## Credits
 
 Most of the ZSH configuration is based on Mark H. Nichols great article [Zsh Configuration From the Ground Up](http://zanshin.net/2013/02/02/zsh-configuration-from-the-ground-up/)
+
+I also peaked into some dotfile repos listed on [dotfiles.github.com](https://dotfiles.github.io/)
