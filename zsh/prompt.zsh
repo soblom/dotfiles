@@ -86,7 +86,7 @@ function current_pwd {
 }
 
 PROMPT='%{%f%k%b%}
-%K{000}${PR_GREEN}%n% %{$FG[239]%}@${PR_BOLD_BLUE}$(box_name) %{$FG[239]%}in ${PR_BOLD_YELLOW}$(current_pwd)% $(git_prompt_string) %E%{%f%k%b%}
+%K{000}${PR_GREEN}%n% %{$FG[239]%}@${PR_BOLD_BLUE}$(box_name) %{$FG[239]%}in ${PR_BOLD_YELLOW}$(current_pwd)%  $(git_prompt_string) %E%{%f%k%b%}
 %K{000}$(prompt_char) %% %{%f%k%b%} '
 
 
