@@ -10,6 +10,8 @@
 	<integer>0</integer>
 	<key>AppleSmoothFixedFontsSizeThreshold</key>
 	<integer>1</integer>
+	<key>AppleWindowTabbingMode</key>
+	<string>manual</string>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>Solarized_Dark</key>
@@ -225,6 +227,8 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>6A546FFB-61A5-471C-9F99-5081462AABB6</string>
+	<key>EnableDivisionView</key>
+	<true/>
 	<key>FocusFollowsMouse</key>
 	<true/>
 	<key>GlobalKeyMap</key>
@@ -342,6 +346,8 @@
 			<string></string>
 		</dict>
 	</dict>
+	<key>HideScrollbar</key>
+	<true/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>LoadPrefsFromCustomFolder</key>
@@ -393,13 +399,13 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>269 314 606 456 0 0 1280 777 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>330 288 620 392 0 0 1280 777 </string>
+	<string>970 -511 620 392 640 -800 1280 777 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 126 606 469 0 0 1280 777 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>67 939 958 451 -388 800 1920 1057 </string>
+	<string>836 -625 770 429 640 -800 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>117 268 585 452 0 0 1280 777 </string>
+	<string>640 -795 1279 772 640 -800 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>131 91 585 452 0 0 1280 777 </string>
 	<key>New Bookmarks</key>
@@ -1035,12 +1041,14 @@
 			<string>/Users/sblom</string>
 		</dict>
 	</array>
+	<key>NoSyncHaveWarnedAboutIncompatibleSoftware</key>
+	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>2C585544-EB21-487B-A6E0-7A4FEDFE2A03</string>
 	<key>NoSyncLastTipTime</key>
-	<real>531613108.380436</real>
+	<real>534947543.32639003</real>
 	<key>NoSyncPermissionToShowTip</key>
 	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
@@ -1108,6 +1116,17 @@
 		<string>0057</string>
 		<string>0058</string>
 		<string>0059</string>
+		<string>0060</string>
+		<string>0061</string>
+		<string>0062</string>
+		<string>0063</string>
+		<string>0064</string>
+		<string>0065</string>
+		<string>0066</string>
+		<string>0067</string>
+		<string>0068</string>
+		<string>0069</string>
+		<string>0070</string>
 	</array>
 	<key>PointerActions</key>
 	<dict>
@@ -1153,13 +1172,19 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-09-21T11:52:16Z</date>
+	<date>2017-12-11T16:27:41Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
 	<false/>
+	<key>ShowPaneTitles</key>
+	<false/>
 	<key>TabViewType</key>
 	<integer>0</integer>
+	<key>UseBorder</key>
+	<false/>
+	<key>WindowNumber</key>
+	<true/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>
@@ -1167,7 +1192,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.1</string>
+	<string>3.1.5</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
