@@ -5,6 +5,9 @@ source ~/dotfiles/zsh/setopt.zsh
 source ~/dotfiles/zsh/exports.zsh
 source ~/dotfiles/zsh/prompt.zsh
 source ~/dotfiles/zsh/completions.zsh
+if [ -e ~/dotfiles/zsh/local.zsh ]; then
+  source ~/dotfiles/zsh/local.zsh
+fi
 
 if [ -x /usr/libexec/path_helper ]; then
     PATH=''
