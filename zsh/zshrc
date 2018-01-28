@@ -1,17 +1,6 @@
-source ~/dotfiles/zsh/aliases.zsh
-source ~/dotfiles/zsh/colors.zsh
-source ~/dotfiles/zsh/history.zsh
-source ~/dotfiles/zsh/setopt.zsh
-source ~/dotfiles/zsh/exports.zsh
-source ~/dotfiles/zsh/prompt.zsh
-source ~/dotfiles/zsh/completions.zsh
-if [ -e ~/dotfiles/zsh/local.zsh ]; then
-  source ~/dotfiles/zsh/local.zsh
-fi
-
 if [ -x /usr/libexec/path_helper ]; then
     PATH=''
-    eval `/usr/libexec/path_helper -s`
+    eval "$(/usr/libexec/path_helper -s)"
 fi
 
 if which rbenv &> /dev/null; then
