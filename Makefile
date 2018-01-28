@@ -1,7 +1,9 @@
-install: ~/.zshrc ~/.vimrc
+makefiles := $(wildcard */Makefile)
+makedirs := $(makefiles:/Makefile=)
 
-~/.zshrc:
-	ln -s $(realpath zsh/zshrc) $@
+all: $(makedirs)
 
-~/.vimrc:
-	ln -s $(realpath vim/vimrc) $@
+$(makedirs):
+	$(MAKE) -C $@
+
+
