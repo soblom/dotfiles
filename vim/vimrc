@@ -1,4 +1,25 @@
+"DON'T CHANGE THIS FILE
+"IT WAS AUTOMATICALLY CREATED FROM ~/dotfiles
+
+set shiftwidth=2
+set tabstop=2
 filetype plugin indent on
 
 syntax on
 set ruler
+set number
+
+" Explained in https://github.com/junegunn/vim-plug
+call plug#begin('~/.vim/plugged')
+
+Plug 'chriskempson/base16-vim'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'tpope/vim-fugitive'
+
+call plug#end()
+
+colorscheme base16-codeschool
+let g:airline_theme='base16'
