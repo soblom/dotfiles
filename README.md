@@ -14,3 +14,4 @@ Most of the ZSH configuration is based on Mark H. Nichols great article [Zsh Con
 I also peaked into some dotfile repos listed on [dotfiles.github.com](https://dotfiles.github.io/).
 
 Tips for setting up vim as a more useful editor for git commit messages found on [Gregg Hurrell](https://wincent.com/blog/automatic-wrapping-of-git-commit-messages-using-vim)'s blog.
+I am using [vim-plug](https://github.com/junegunn/vim-plug) for handling vim plugins.
