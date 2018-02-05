@@ -4,22 +4,40 @@
 set shiftwidth=2
 set tabstop=2
 filetype plugin indent on
-
 syntax on
 set ruler
 set number
+set autochdir
+set splitright
+set splitbelow
 
 " Explained in https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 
 Plug 'chriskempson/base16-vim'
-
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
 Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'eapache/rainbow_parentheses.vim'
+Plug 'Lokaltog/vim-distinguished'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-jdaddy'
+Plug 'othree/xml.vim'
 
 call plug#end()
 
-colorscheme base16-codeschool
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+colorscheme base16-default-dark 
 let g:airline_theme='base16'
+
+autocmd vimenter * NERDTree
+"show NERDTree on startup, even if no file is specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
