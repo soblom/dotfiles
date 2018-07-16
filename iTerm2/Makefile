@@ -1,16 +1,18 @@
-.PHONY= install
+#.PHONY= install
 
-profile = ~/Library/Application\\\ Support/iTerm2/DynamicProfiles/soblom.json
-baseconf = ~/Library/Preferences/com.googlecode.iterm2.plist
+PROFILE = soblom.json
+PRO_TARGET =~/Library/Application\\\ Support/iTerm2/DynamicProfiles/$(PROFILE)
+BASECONF = com.googlecode.iterm2.plist
+BASE_TARGET =~/Library/Preferences/$(BASECONF)
 
 # Not sure why, but this stops make from wanting to update the profile
-sblom.json: ;
+# sblom.json: ;
 
-$(profile): soblom.json
-	cp $^ $@ 
+install: $(PRO_TARGET) $(BASE_TARGET)
 
-$(baseconf): $(profile)
+$(PRO_TARGET): $(PROFILE)
+	cp $^ $@
+
+$(BASE_TARGET): $(BASECONF)
 	defaults delete com.googlecode.iterm2 
 	defaults import com.googlecode.iterm2 $(notdir $(baseconf))
-
-install: $(profile) $(baseconf)

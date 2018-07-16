@@ -18,10 +18,6 @@
 	<true/>
 	<key>LoadPrefsFromCustomFolder</key>
 	<false/>
-	<key>NSNavLastRootDirectory</key>
-	<string>~/dotfiles</string>
-	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
