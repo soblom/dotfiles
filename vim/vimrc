@@ -9,7 +9,32 @@ set ruler
 set number
 set autochdir
 set splitright
-set splitbelow
+set diffopt+=vertical
+set cursorline
+set shell=/usr/local/bin/zsh
+set number relativenumber
+set hidden
+set expandtab
+set termguicolors
+
+if &term =~ '256color'
+    " disable Background Color Erase (BCE) so that color schemes
+    " render properly when inside 256-color tmux and GNU screen.
+    " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+    set t_ut=
+endif
+
+let mapleader=","
+
+set fillchars=vert:│
+
+set list "show invisible characters
+set listchars=nbsp:⦸
+set listchars+=tab:▸‒
+set listchars+=extends:⇝
+set listchars+=precedes:⇜
+set listchars+=trail:▨
+set listchars+=eol:⌝
 
 " Explained in https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
@@ -19,25 +44,49 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'eapache/rainbow_parentheses.vim'
-Plug 'Lokaltog/vim-distinguished'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-jdaddy'
 Plug 'othree/xml.vim'
-
+Plug 'vim-syntastic/syntastic'
+Plug 'plasticboy/vim-markdown'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'udalov/kotlin-vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-colorscheme base16-default-dark 
-let g:airline_theme='base16'
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
 
-autocmd vimenter * NERDTree
+" Python syntax checker at work is prospector
+let g:syntastic_python_checkers = ['prospector']
+" detect pipenv and set python enging
+let pipenv_venv_path = system('pipenv --venv')
+
+"autocmd vimenter * NERDTree
 "show NERDTree on startup, even if no file is specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+set shortmess=I
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+set formatoptions+=j
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+set bs=2
