@@ -8,8 +8,16 @@ function prompt_char {
     echo '○'
 }
 
+export BOX_NAME=""
 function box_name {
-    [ -f ~/.box-name ] && cat ~/.box-name || hostname -s
+    if [ "$BOX_NAME" = "" ]; then
+        if [ $(uname) = Darwin ]; then
+            BOX_NAME="$(scutil --get ComputerName)"
+        else
+            BOX_NAME="$(hostname -s)"
+        fi
+    fi
+	  echo $BOX_NAME
 }
 
 # http://blog.joshdick.net/2012/12/30/my_git_prompt_for_zsh.html
