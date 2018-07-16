@@ -1,11 +1,11 @@
 makefiles = $(wildcard */Makefile)
 makedirs = $(makefiles:/Makefile=)
 
-packages = zsh zsh-completions fzf pandoc 
+packages = zsh zsh-completions fzf pandoc tmux
 # Targets are the brew folders in the standard location.
 brews = $(foreach p,$(packages),/usr/local/Cellar/$(p))
 
-.PHONY: all $(makedirs) 
+.PHONY: all $(makedirs)
 
 all: $(makedirs) $(brews)
 
