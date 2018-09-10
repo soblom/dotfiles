@@ -1,34 +1,74 @@
-"DON'T CHANGE THIS FILE
 "IT WAS AUTOMATICALLY CREATED FROM ~/dotfiles
 
+" Key (Re)mappings
+let mapleader=","
+imap jj <Esc>
+
+" Explained in https://github.com/junegunn/vim-plug
+call plug#begin('~/.vim/plugged')
+" Look and Feel
+Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='gruvbox'
+
+" General Features
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+nnoremap <silent> <leader><space> :Files<CR>
+
+Plug 'tpope/vim-dispatch'
+
+" Editing
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-surround'
+
+" Development
+Plug 'tpope/vim-fugitive'
+
+Plug 'editorconfig/editorconfig-vim'
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'tpope/vim-commentary'
+Plug 'airblade/vim-gitgutter'
+
+" Language Specific
+Plug 'tpope/vim-jdaddy'
+Plug 'othree/xml.vim'
+
+Plug 'plasticboy/vim-markdown'
+let vim_markdown_preview_hotkey='<C-m>'
+
+Plug 'udalov/kotlin-vim'
+Plug 'ambv/black'
+call plug#end()
+
+" Plugin Configuration
+
+
+" Spaces and Indentation
 set shiftwidth=2
 set tabstop=2
 filetype plugin indent on
-syntax on
-set ruler
-set number
-set autochdir
-set splitright
-set diffopt+=vertical
-set cursorline
-set shell=/usr/local/bin/zsh
+
+" Editor appearance
+set shortmess=I " Don't give intro message when opening empty vim
 set number relativenumber
 set hidden
-set expandtab
-set termguicolors
-
-if &term =~ '256color'
-    " disable Background Color Erase (BCE) so that color schemes
-    " render properly when inside 256-color tmux and GNU screen.
-    " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-    set t_ut=
-endif
-
-let mapleader=","
-
+set ruler
+set number
+set cursorline
 set fillchars=vert:│
 
-set list "show invisible characters
+"show invisible characters
+set list
 set listchars=nbsp:⦸
 set listchars+=tab:▸‒
 set listchars+=extends:⇝
@@ -36,57 +76,30 @@ set listchars+=precedes:⇜
 set listchars+=trail:▨
 set listchars+=eol:⌝
 
-" Explained in https://github.com/junegunn/vim-plug
-call plug#begin('~/.vim/plugged')
-
-Plug 'chriskempson/base16-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-jdaddy'
-Plug 'othree/xml.vim'
-Plug 'vim-syntastic/syntastic'
-Plug 'plasticboy/vim-markdown'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'udalov/kotlin-vim'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
-Plug 'morhetz/gruvbox'
-call plug#end()
-
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-
-colorscheme gruvbox
-let g:airline_theme='gruvbox'
-
-" Python syntax checker at work is prospector
-let g:syntastic_python_checkers = ['prospector']
-" detect pipenv and set python enging
-let pipenv_venv_path = system('pipenv --venv')
-
-"autocmd vimenter * NERDTree
-"show NERDTree on startup, even if no file is specified
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
-set shortmess=I
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
+" Editing behaviour
+set expandtab
+set nofoldenable
+set bs=2 " Make backspace work as expected
 set formatoptions+=j
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" Syntax Highlighting
+syntax on
+set termguicolors
+colorscheme gruvbox
+if &term =~ '256color'
+    " disable Background Color Erase (BCE) so that color schemes
+    " render properly when inside 256-color tmux and GNU screen.
+    " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+    set t_ut=
+endif
 
-set bs=2
+" Status Line
+set statusline+=%#warningmsg#
+set statusline+=%*
+
+" Splitting
+set splitright
+set splitbelow
+set diffopt+=vertical
+
+set shell=/usr/local/bin/zsh
