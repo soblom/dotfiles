@@ -86,6 +86,9 @@ set listchars+=eol:⌝
 
 " Editing behaviour
 set expandtab
+set wrap
+set colorcolumn=80 "highlight 80 char, don't hard wrap
+set linebreak
 set nofoldenable
 set bs=2 " Make backspace work as expected
 set formatoptions+=j
