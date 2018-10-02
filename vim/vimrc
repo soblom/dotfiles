@@ -101,6 +101,10 @@ if &term =~ '256color'
     set t_ut=
 endif
 
+" Search
+set ignorecase
+set smartcase
+
 " Status Line
 set statusline+=%#warningmsg#
 set statusline+=%*
