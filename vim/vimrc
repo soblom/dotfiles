@@ -4,6 +4,12 @@
 let mapleader=","
 imap jj <Esc>
 
+" Stop using arrow keys in Vim
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 " Explained in https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 " Look and Feel
