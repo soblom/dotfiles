@@ -1,23 +1,21 @@
-VIMHOME_SOURCE=$(wildcard vimhome/**/*)
-VIMHOME_TARGET=$(subst vimhome,~/.vim,$(VIMHOME_SOURCE))
+VIMHOME_SOURCE=vimhome
+VIMHOME_TARGET=~/.vim
+VIMPLUG_LOCAL=vimhome/autoload/plug.vim
 
-.PHONY: allconfig
-allconfig: ~/.vimrc vimhome/autoload/plug.vim $(VIMHOME_TARGET)
+.PHONY: allconfig clean
+
+allconfig: ~/.vimrc $(VIMHOME_TARGET)
 
 ~/.vimrc: vimrc
 	@cp vimrc $@
 	@vim +PlugInstall +qall
 
-$(VIMHOME_TARGET): $(VIMHOME_SOURCE)
-	@cp -R $^ $@
-	@touch $@ # hack to avoid constant reruns
-
-.PHONY: vimhome/autoload/plug.vim
-vimhome/autoload/plug.vim:
+VIMPLUG_LOCAL:
 	curl -o $@ --create-dirs \
 	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-.PHONY: test
-test:
-	@echo $(VIMHOME_TARGET)
-	@echo $(VIMHOME_SOURCE)
+$(VIMHOME_TARGET): $(VIMHOME_SOURCE)
+	rsync --recursive $(VIMHOME_SOURCE)/* $(VIMHOME_TARGET)
+
+clean: $(VIMPLUG_LOCAL)
+	rm $^
