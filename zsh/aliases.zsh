@@ -3,6 +3,7 @@ alias zshconf="$EDITOR ~/.zshrc"
 alias dotconf="$EDITOR ~/dotfiles"
 alias t="tmux"
 alias rake="noglob rake" # necessary to make rake work inside of zsh
+alias grdl="./gradlew"
 
 mdp() {
 	echo mdp: Rendering $1...
