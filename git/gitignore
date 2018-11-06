@@ -1,0 +1,8 @@
+# DON'T CHANGE THIS FILE
+# IT WAS AUTOMATICALLY CREATED FROM ~/dotfiles
+
+# Mac OS X hidden files
+.DS_Store
+
+# Vim swap files
+.*.sw?
