@@ -86,18 +86,21 @@ function parse_git_state() {
 # If inside a Git repository, print its branch and state
 function git_prompt_string() {
   local git_where="$(parse_git_branch)"
-  [ -n "$git_where" ] && echo "on %{$fg[blue]%}${git_where#(refs/heads/|tags/)}$(parse_git_state)"
+  [ -n "$git_where" ] && echo "${git_where#(refs/heads/|tags/)}$(parse_git_state)"
 }
 
 function current_pwd {
   echo $(pwd | sed -e "s,^$HOME,~,")
 }
 
-PROMPT='%{%f%k%b%}
-%K{000}${PR_GREEN}%n% %{$FG[239]%}@${PR_BOLD_BLUE}$(box_name) %{$FG[239]%}in ${PR_BOLD_YELLOW}$(current_pwd)%  $(git_prompt_string) %E%{%f%k%b%}
-%K{000}$(prompt_char) %% %{%f%k%b%} '
+PROMPT_SEPARATOR='%{%B%}%{%F{202}%}▶%{%F{220}%}▶%{%F{190}%}▶'
 
+PROMPT='
+%{%f%k%b%}%
+%{%B%F{248}%}%n@$(box_name)%
+%{%F{245}%}%b in %{%B%F{172}%}$(current_pwd)
+%{%F{072}%}$(prompt_char) ${PROMPT_SEPARATOR} %{%f%k%b%}'
 
-RPROMPT='!%{%B%F{cyan}%}%!%{%f%k%b%}'
+RPROMPT='%{%B%F{109}%}$(git_prompt_string) %E%{%f%k%b%}'
 
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color [(y)es (n)o (a)bort (e)dit]? "
