@@ -2,6 +2,7 @@
 
 " Key (Re)mappings
 let mapleader=","
+set timeoutlen=400
 imap jj <Esc>
 
 " Stop using arrow keys in Vim
@@ -124,6 +125,7 @@ set smartcase
 " Status Line
 set statusline+=%#warningmsg#
 set statusline+=%*
+set wildmenu
 
 " Splitting
 set splitright
