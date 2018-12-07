@@ -5,3 +5,6 @@ $(HOME)/.zshrc: $(snippets) zshrc exports.zsh local.zsh
 	 							"# IT WAS AUTOMATICALLY CREATED FROM ~/dotfiles" \
 		| cat - $^ > $@
 
+local.zsh:
+	touch $@
+
