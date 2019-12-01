@@ -23,6 +23,8 @@ inoremap <Leader>w <esc>wi
 inoremap <Leader>e <esc>ei
 inoremap <Leader>b <esc>bi
 
+set encoding=UTF8
+
 " Explained in https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 " Look and Feel
@@ -33,7 +35,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='gruvbox'
+let g:airline_theme='dark_minimal'
 
 " General Features
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
