@@ -1,0 +1,25 @@
+{
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 15,
+    "editor.lineHeight": 26,
+    "editor.lineNumbers": "relative",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.renderIndentGuides": false,
+    "workbench.colorTheme": "Monokai",
+    "editor.rulers": [80, 120],
+    "editor.minimap.enabled": false,
+    "calva.highlight.enableBracketColo": true,
+    "window.zoomLevel": 0,
+    "calva.paredit.defaultKeyMap": "original",
+    "calva.prettyPrintingOptions": {
+        "enabled": true,
+        "printEngine": "pprint",
+        "width": 120
+    },
+    "calva.sendAsyncOutputTo": "Both",
+    "calva.syncReplNamespaceToCurrentFile": true
+}
