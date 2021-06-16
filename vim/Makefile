@@ -10,11 +10,11 @@ allconfig: ~/.vimrc $(VIMHOME_TARGET)
 	@cp vimrc $@
 	@vim +PlugInstall +qall
 
-VIMPLUG_LOCAL:
+$(VIMPLUG_LOCAL):
 	curl -o $@ --create-dirs \
 	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-$(VIMHOME_TARGET): $(VIMHOME_SOURCE)
+$(VIMHOME_TARGET): $(VIMHOME_SOURCE) $(VIMPLUG_LOCAL)
 	rsync --recursive $(VIMHOME_SOURCE)/* $(VIMHOME_TARGET)
 
 clean: $(VIMPLUG_LOCAL)

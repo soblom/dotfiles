@@ -65,6 +65,7 @@ Plug 'airblade/vim-gitgutter'
 " Language Specific
 Plug 'tpope/vim-jdaddy'
 Plug 'othree/xml.vim'
+Plug 'aklt/plantuml-syntax'
 
 Plug 'plasticboy/vim-markdown'
 let vim_markdown_preview_hotkey='<C-m>'
@@ -132,6 +133,11 @@ set wildmenu
 " Splitting
 set splitright
 set splitbelow
-set diffopt+=vertical
+" the complicated setting of vertical due to Catalina
+" https://github.com/thoughtbot/dotfiles/issues/655#issuecomment-605019271
+if &diff
+    set diffopt-=internal
+    set diffopt+=vertical
+endif
 
-set shell=/usr/local/bin/zsh
+set shell=/bin/zsh
