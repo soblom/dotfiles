@@ -3,6 +3,10 @@ if [ -x /usr/libexec/path_helper ]; then
     eval "$(/usr/libexec/path_helper -s)"
 fi
 
+if [ `uname -p` = "arm" ]; then
+  export PATH=$PATH:/opt/homebrew/bin
+fi
+
 if which rbenv &> /dev/null; then
     # Put the rbenv entry at the front of the line
     export PATH="$HOME/.rbenv/bin:$PATH"
@@ -10,3 +14,4 @@ if which rbenv &> /dev/null; then
     # enable shims and auto-completion
     eval "$(rbenv init - zsh)"
 fi
+
