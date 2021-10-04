@@ -4,6 +4,7 @@ alias dotconf="$EDITOR ~/dotfiles"
 alias t="tmux"
 alias rake="noglob rake" # necessary to make rake work inside of zsh
 alias grdl="./gradlew"
+alias iDrive="cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs"
 
 mdp() {
 	echo mdp: Rendering $1...
@@ -13,7 +14,3 @@ mdp() {
 	open /tmp/out.html
 }
 
-NV() {
-	cd ~/Desktop/notes
-	vim `fzf --preview="cat {}" --preview-window=right:70%:wrap`
-}
