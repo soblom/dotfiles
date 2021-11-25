@@ -116,7 +116,8 @@
         "Red Component": 1
       },
       "Blinking Cursor": true,
-      "Blur": false,
+      "Blur": true,
+      "Blur Radius" : 15, 
       "Bold Color": {
         "Blue Component": 0.631373,
         "Color Space": "sRGB",
@@ -125,7 +126,7 @@
       },
       "Character Encoding": 4,
       "Close Sessions On End": true,
-      "Columns": 80,
+      "Columns": 120,
       "Command": "/bin/zsh --login",
       "Cursor Color": {
         "Blue Component": 0.784314,
@@ -220,7 +221,7 @@
       "Option Key Sends": 0,
       "Prompt Before Closing 2": false,
       "Right Option Key Sends": 2,
-      "Rows": 25,
+      "Rows": 30,
       "Screen": -1,
       "Scrollback Lines": 1000,
       "Selected Text Color": {
@@ -241,13 +242,13 @@
       "Sync Title": false,
       "Tags": ["Dynamic"],
       "Terminal Type": "xterm-256color",
-      "Transparency": 0,
+      "Transparency": 0.15,
       "Unlimited Scrollback": false,
       "Use Bold Font": true,
       "Use Bright Bold": true,
       "Use Italic Font": true,
       "Use Non-ASCII Font": false,
-      "Vertical Spacing": 1.1,
+      "Vertical Spacing": 1.3,
       "Visual Bell": true,
       "Window Type": 0,
       "Working Directory": "/Users/sblom"
