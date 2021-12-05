@@ -1,21 +1,21 @@
-VIMHOME_SOURCE=vimhome
 VIMHOME_TARGET=~/.vim
-VIMPLUG_LOCAL=vimhome/autoload/plug.vim
+PACKAGE_TARGET_DIR=$(VIMHOME_TARGET)/pack
+PACKAGE_SOURCE_DIR=pack
+PACKAGE_SOURCE_LIST=$(wildcard pack/**/_pluglist)
+PACKAGE_TARGET_LIST=$(addprefix $(VIMHOME_TARGET)/, $(PACKAGE_SOURCE_LIST))
 
-.PHONY: allconfig clean
+.PHONY: all
+all: $(VIMHOME_TARGET)/vimrc $(PACKAGE_TARGET_LIST)
 
-allconfig: ~/.vimrc $(VIMHOME_TARGET)
+$(VIMHOME_TARGET):
+	mkdir $@
 
-~/.vimrc: vimrc
+$(VIMHOME_TARGET)/vimrc: vimrc | $(VIMHOME_TARGET)
 	@cp vimrc $@
-	@vim +PlugInstall +qall
 
-$(VIMPLUG_LOCAL):
-	curl -o $@ --create-dirs \
-	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-$(VIMHOME_TARGET): $(VIMHOME_SOURCE) $(VIMPLUG_LOCAL)
-	rsync --recursive $(VIMHOME_SOURCE)/* $(VIMHOME_TARGET)
-
-clean: $(VIMPLUG_LOCAL)
-	rm $^
+$(PACKAGE_TARGET_DIR)/%/_pluglist: pack/%/_pluglist
+	mkdir -p $(dir $@)
+	cp $^ $@
+	cd $(dir $@) &&\
+ awk '!/^#/ {printf "clone https://github.com/%s/%s %s/%s\n", $$1,$$2,$$3,$$2}' ~/dotfiles/vim/pack/base/_pluglist |\
+ xargs -n3 git

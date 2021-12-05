@@ -1,96 +1,26 @@
-"IT WAS AUTOMATICALLY CREATED FROM ~/dotfiles
+""" Vim as and IDE (2020 Talk)
+filetype plugin indent on
+syntax on
+set backspace=start,eol,indent
+"set hidden
+set noswapfile
 
-" Key (Re)mappings
-let mapleader=","
-set timeoutlen=400
-imap jj <Esc>
-
-" Stop using arrow keys in Vim
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-inoremap <Up> <NOP>
-inoremap <Down> <NOP>
-inoremap <Left> <NOP>
-inoremap <Right> <NOP>
-
-inoremap <Leader>k <up>
-inoremap <Leader>j <down>
-inoremap <Leader>h <left>
-inoremap <Leader>l <right>
-inoremap <Leader>w <esc>wi
-inoremap <Leader>e <esc>ei
-inoremap <Leader>b <esc>bi
-
-set encoding=UTF8
-
-" Explained in https://github.com/junegunn/vim-plug
-call plug#begin('~/.vim/plugged')
-" Look and Feel
-Plug 'chriskempson/base16-vim'
-Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='dark_minimal'
-
-" General Features
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-nnoremap <silent> <leader><space> :Files<CR>
-
-Plug 'tpope/vim-dispatch'
-
-" Editing
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-surround'
-Plug 'machakann/vim-highlightedyank'
-let g:highlightedyank_highlight_duration = 700
-
-" Development
-Plug 'tpope/vim-fugitive'
-
-Plug 'editorconfig/editorconfig-vim'
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'tpope/vim-commentary'
-Plug 'airblade/vim-gitgutter'
-
-" Language Specific
-Plug 'tpope/vim-jdaddy'
-Plug 'othree/xml.vim'
-Plug 'aklt/plantuml-syntax'
-
-Plug 'plasticboy/vim-markdown'
-let vim_markdown_preview_hotkey='<C-m>'
-
-Plug 'udalov/kotlin-vim'
-Plug 'ambv/black'
-Plug 'tpope/vim-cucumber'
-call plug#end()
-
-" Plugin Configuration
-
+let $RTP=split(&runtimepath, ',')[0]
+let $RC="$HOME/.vim/vimrc"
+""" Vim as and IDE (2020 Talk)
 
 " Spaces and Indentation
 set shiftwidth=2
 set tabstop=2
-filetype plugin indent on
 
 " Editor appearance
 set shortmess=I " Don't give intro message when opening empty vim
 set number relativenumber
-set hidden
 set ruler
 set number
 set cursorline
 set fillchars=vert:│
+colorscheme gruvbox
 
 "show invisible characters
 set list
@@ -101,43 +31,19 @@ set listchars+=precedes:⇜
 set listchars+=trail:▨
 set listchars+=eol:⌝
 
-" Editing behaviour
-set expandtab
-set wrap
-set colorcolumn=80 "highlight 80 char, don't hard wrap
-set linebreak
-set nofoldenable
-set bs=2 " Make backspace work as expected
-set formatoptions+=j
-
-" Syntax Highlighting
-syntax on
-set termguicolors
-colorscheme gruvbox
-if &term =~ '256color'
-    " disable Background Color Erase (BCE) so that color schemes
-    " render properly when inside 256-color tmux and GNU screen.
-    " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-    set t_ut=
-endif
-
 " Search
 set ignorecase
 set smartcase
-
-" Status Line
-set statusline+=%#warningmsg#
-set statusline+=%*
-set wildmenu
+set incsearch
+set hlsearch
 
 " Splitting
 set splitright
 set splitbelow
-" the complicated setting of vertical due to Catalina
-" https://github.com/thoughtbot/dotfiles/issues/655#issuecomment-605019271
-if &diff
-    set diffopt-=internal
-    set diffopt+=vertical
-endif
 
-set shell=/bin/zsh
+" Status Line
+set statusline+=%#warningmsg#
+set statusline+=%*
+
+set wildmenu
+
