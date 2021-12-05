@@ -1,0 +1,11 @@
+NVIM_HOME=~/.config/nvim
+NVIM_CONFIG_FILE=init.vim
+NVIM_CONFIG=$(NVIM_HOME)/$(NVIM_CONFIG_FILE)
+
+all: $(NVIM_CONFIG)
+
+$(NVIM_CONFIG): $(NVIM_CONFIG_FILE) | $(NVIM_HOME)
+	cp $^ $@
+
+$(NVIM_HOME):
+	mkdir -p $@
