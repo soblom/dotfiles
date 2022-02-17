@@ -242,7 +242,7 @@
       "Sync Title": false,
       "Tags": ["Dynamic"],
       "Terminal Type": "xterm-256color",
-      "Transparency": 0.15,
+      "Transparency": 0.1,
       "Unlimited Scrollback": false,
       "Use Bold Font": true,
       "Use Bright Bold": true,
