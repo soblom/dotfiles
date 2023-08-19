@@ -1,3 +1,4 @@
+
 """ Vim as and IDE (2020 Talk)
 filetype plugin indent on
 syntax on
@@ -9,9 +10,35 @@ let $RTP=split(&runtimepath, ',')[0]
 let $RC="$HOME/.vim/vimrc"
 """ Vim as and IDE (2020 Talk)
 
+" Key (Re)mappings
+let mapleader=","
+set timeoutlen=400
+imap jj <Esc>
+
+" Stop using arrow keys in Vim
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+
+inoremap <Leader>k <up>
+inoremap <Leader>j <down>
+inoremap <Leader>h <left>
+inoremap <Leader>l <right>
+inoremap <Leader>w <esc>wi
+inoremap <Leader>e <esc>ei
+inoremap <Leader>b <esc>bi
+
+set encoding=UTF8
+
 " Spaces and Indentation
 set shiftwidth=2
 set tabstop=2
+set expandtab
 
 " Editor appearance
 set shortmess=I " Don't give intro message when opening empty vim
@@ -44,6 +71,23 @@ set splitbelow
 " Status Line
 set statusline+=%#warningmsg#
 set statusline+=%*
-
 set wildmenu
+
+" Splitting
+set splitright
+set splitbelow
+" the complicated setting of vertical due to Catalina
+" https://github.com/thoughtbot/dotfiles/issues/655#issuecomment-605019271
+if &diff
+    set diffopt-=internal
+    set diffopt+=vertical
+endif
+
+set shell=/bin/zsh
+
+" netrw config
+let g:netrw_liststyle=3
+let g:netrw_banner=0
+let g:netrw_browse_split = 4
+let g:netrw_winsize = 25
 
