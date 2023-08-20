@@ -1,0 +1,5 @@
+# Don't edit directly! Go to ~/dotfiles/ruby/irbrc instead!
+
+#history
+IRB.conf[:SAVE_HISTORY] = 100
+IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
