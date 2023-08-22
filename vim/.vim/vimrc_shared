@@ -81,12 +81,7 @@ set wildmenu
 " Splitting
 set splitright
 set splitbelow
-" the complicated setting of vertical due to Catalina
-" https://github.com/thoughtbot/dotfiles/issues/655#issuecomment-605019271
-if &diff
-    set diffopt-=internal
-    set diffopt+=vertical
-endif
+set diffopt+=vertical
 
 set shell=/bin/zsh
 
