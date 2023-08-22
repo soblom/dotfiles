@@ -1,8 +1,0 @@
-# vim: vartabstop=13,18,10
-# GH org	GH repo	load time
-tpope	vim-fugitive	start
-morhetz	gruvbox	start
-tpope	vim-commentary	start
-airblade	vim-gitgutter	start
-tpope	vim-surround	start
-vim-airline	vim-airline	start
