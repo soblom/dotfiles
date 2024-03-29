@@ -45,6 +45,7 @@ set number relativenumber
 set ruler
 set number
 set cursorline
+set scrolloff=8
 set fillchars=vert:│
 colorscheme gruvbox
 
@@ -84,6 +85,10 @@ set splitbelow
 set diffopt+=vertical
 
 set shell=/bin/zsh
+
+" buffer shortcuts
+nnoremap <Leader>b :bn<CR>
+nnoremap <Leader>B :bp<CR>
 
 " netrw config
 let g:netrw_liststyle=3
