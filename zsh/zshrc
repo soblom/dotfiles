@@ -13,6 +13,12 @@ if which rbenv &> /dev/null; then
     eval "$(rbenv init - zsh)"
 fi
 
+if which pyenv &> /dev/null; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
+
 user_local="${HOME}/.local/bin"
 if [ -x "$user_local" ]; then
     export PATH="$user_local:$PATH"

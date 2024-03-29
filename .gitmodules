@@ -1,0 +1,6 @@
+[submodule "nvim/.local/share/lazy/lazy.vim"]
+	path = nvim/.local/share/lazy/lazy.vim
+	url = https://github.com/folke/lazy.nvim.git
+[submodule "vim/.vim/pack/default/start/gruvbox"]
+	path = vim/.vim/pack/default/start/gruvbox
+	url = https://github.com/morhetz/gruvbox
