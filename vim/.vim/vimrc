@@ -1,6 +1,7 @@
 " This is the actual vimrc. Entries here are meant for vim _only_ and not for
 " Neovim. Any shared settings should go into vimrc_shared
 
+set runtimepath+=~/.config/n_vim-shared
 runtime vimrc_shared
 
 

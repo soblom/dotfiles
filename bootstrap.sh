@@ -14,6 +14,10 @@ vim() {
   _stow_app vim
 }
 
+nvim() {
+  _stow_app nvim
+}
+
 main() {
   if [[ -z $1 ]]; then
     echo "Need to specifiy one or more apps to configure
@@ -24,6 +28,8 @@ Usage: $0 <app>"
   case $1 in
     vim)
       vim;;
+    nvim)
+      nvim;;
     *)
       echo "this should never run"; exit 1;;
   esac

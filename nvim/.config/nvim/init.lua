@@ -9,9 +9,14 @@ vim.g.mapleader = ","
 vim.api.nvim_set_keymap("n", '<leader>e', ":NvimTreeToggle<cr>", { noremap=true, silent=true})
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
-    "git clone --filter=blob:none https://github.com/folke/lazy.nvim.git --branch=stable", lazypath,
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
   })
 end
 vim.opt.rtp:prepend(lazypath)
@@ -25,7 +30,8 @@ vim.g.coq_settings = {
   display = { icons = { mode = 'none' } }
 }
 
-require("lazy").setup({
+require("lazy").setup(
+{ -- plugins of lazy
   "vim-airline/vim-airline",
   {
     "tpope/vim-fugitive",
@@ -64,7 +70,8 @@ require("lazy").setup({
       }
     end,
   }
-})
+} -- end of plugins, after this options can be placed
+)
 
 require'lspconfig'.pyright.setup{
     on_attach = my_custom_on_attach,
@@ -91,8 +98,8 @@ for _,lsp in ipairs(servers) do
   }))
 end
 
-vim.opt.runtimepath:prepend("~/.vim/pack/default/start/gruvbox")
-vim.cmd("source ~/.vim/vimrc_shared")
+vim.opt.runtimepath:prepend("~/.config/n_vim-shared")
+vim.cmd("runtime vimrc_shared")
 
 vim.api.nvim_exec([[
   augroup YankHighlight
