@@ -6,6 +6,18 @@ alias iDrive="cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs"
 alias ls="ls -lh"
 alias vim='nvim'
 alias aspell='TERM=ansi aspell'
+alias gtyconf='nvim ~/.config/ghostty/config'
+alias vd='TERM=xterm-256color vd'
+alias visidata='TERM=xterm-256color visidata'
+
+# Only use bat if we are in an interactive terminal
+function cat() {
+    if [[ -t 1 ]]; then
+        bat "$@"
+    else
+        command cat "$@"
+    fi
+}
 
 mdp() {
   if [[ -z $1 ]]; then echo "error: please specify an input file!"; exit 1; fi
