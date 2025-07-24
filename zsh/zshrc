@@ -23,3 +23,5 @@ user_local="${HOME}/.local/bin"
 if [ -x "$user_local" ]; then
     export PATH="$user_local:$PATH"
 fi
+
+eval "$(direnv hook zsh)"
