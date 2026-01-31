@@ -22,4 +22,10 @@ brew "tree-sitter"
 # imagemagick: Image processing (required by snacks.nvim for image previews)
 brew "imagemagick"
 
+# Lua Formatter
+brew "stylua"
+
+# Shell Formatter
+brew "shfmt"
+
 
