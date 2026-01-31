@@ -8,7 +8,18 @@ Modern Neovim configuration optimized for 2025 with native features, fast comple
 
 ```bash
 # From the nvim directory
+
+# 1. Homebrew dependencies (core tools, ripgrep, fd, lazygit, etc.)
 brew bundle --file=Brewfile
+
+# 2. Python dependencies (pynvim, black, isort)
+# Note: You might want to install these in a virtualenv managed by your system or Neovim
+pip3 install -r requirements.txt
+
+# 3. Node.js dependencies (neovim client, prettier, prettierd)
+npm install
+# OR install globally if preferred:
+# npm install -g neovim prettier @fsouza/prettierd
 ```
 
 ### 2. Launch Neovim
