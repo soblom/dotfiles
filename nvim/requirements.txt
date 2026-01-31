@@ -1,8 +1,4 @@
-# Python dependencies for Neovim
+# Python dependencies for Neovim (Providers only)
 
 # Neovim Python client
 pynvim>=0.5.0
-
-# Formatters
-black>=24.0.0
-isort>=5.13.0

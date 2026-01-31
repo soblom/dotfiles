@@ -12,14 +12,17 @@ Modern Neovim configuration optimized for 2025 with native features, fast comple
 # 1. Homebrew dependencies (core tools, ripgrep, fd, lazygit, etc.)
 brew bundle --file=Brewfile
 
-# 2. Python dependencies (pynvim, black, isort)
-# Note: You might want to install these in a virtualenv managed by your system or Neovim
+# 2. Python Provider (Required for Python plugins)
+# Neovim needs 'pynvim' installed globally/system-wide to talk to Python.
+# LSPs (pyright) and Formatters (black/isort) will be handled by Mason internally.
 pip3 install -r requirements.txt
 
-# 3. Node.js dependencies (neovim client, prettier, prettierd)
-npm install
-# OR install globally if preferred:
-# npm install -g neovim prettier @fsouza/prettierd
+# 3. Node.js Provider (Required for Node plugins)
+# Neovim needs the 'neovim' package installed globally to talk to Node.
+# LSPs (ts_ls) and Formatters (prettier) will be handled by Mason internally.
+npm install -g neovim
+# OR if you want to use the package.json convenience script:
+# npm run install-deps
 ```
 
 ### 2. Launch Neovim
