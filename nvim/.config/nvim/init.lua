@@ -8,4 +8,4 @@ require('options')              -- core settings
 require('mappings')             -- keymaps
 require('lsp')                  -- LSP/Mason/cmp
 
-vim.cmd.colorscheme('gruvbox')  -- after plugins
+vim.cmd.colorscheme('catppuccin-mocha')  -- after plugins

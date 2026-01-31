@@ -1,0 +1,25 @@
+# Neovim System Dependencies
+# Install with: brew bundle --file=nvim/Brewfile
+
+# Core Neovim
+brew "neovim"
+
+# Essential CLI Tools for Neovim Plugins
+# ----------------------------------------
+
+# fd: Fast file finder (required by snacks.nvim for picker/explorer)
+brew "fd"
+
+# ripgrep: Fast text search (required by telescope.nvim and snacks.nvim)
+brew "ripgrep"
+
+# lazygit: Terminal UI for git (required by snacks.nvim lazygit integration)
+brew "lazygit"
+
+# tree-sitter: Parser generator tool (improves treesitter parser management)
+brew "tree-sitter"
+
+# imagemagick: Image processing (required by snacks.nvim for image previews)
+brew "imagemagick"
+
+
