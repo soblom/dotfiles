@@ -5,8 +5,16 @@ return {
     keys = { { '<leader>e', function() require('nvim-tree.api').tree.toggle() end,
                desc = 'Explorer' } },
     opts = {
-      renderer = { icons = { show = { file=false, folder=false, folder_arrow=false } } },
       view = { width = 40 },
+      renderer = {
+        icons = {
+          glyphs = {
+            git = {
+              unstaged = "●",  -- Filled dot instead of ✗
+            },
+          },
+        },
+      },
     },
   },
 }
