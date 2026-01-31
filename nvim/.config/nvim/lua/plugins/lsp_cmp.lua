@@ -3,31 +3,56 @@ return {
   { 'williamboman/mason-lspconfig.nvim', dependencies = 'williamboman/mason.nvim' },
   { 'neovim/nvim-lspconfig' },
 
-  -- completion
-  { 'hrsh7th/nvim-cmp',
-    dependencies = {
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
-      'rafamadriz/friendly-snippets',
-    },
-    config = function()
-      local cmp     = require('cmp')
-      local luasnip = require('luasnip')
-      require('luasnip.loaders.from_vscode').lazy_load()
+  -- Modern completion with blink.cmp (faster, better UX)
+  {
+    'saghen/blink.cmp',
+    lazy = false,
+    dependencies = 'rafamadriz/friendly-snippets',
+    version = 'v0.*',
+    opts = {
+      keymap = {
+        preset = 'default',
+        ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+        ['<C-e>'] = { 'hide' },
+        ['<C-y>'] = { 'select_and_accept' },
 
-      cmp.setup {
-        snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
-        mapping = cmp.mapping.preset.insert {
-          ['<Tab>']   = cmp.mapping.select_next_item(),
-          ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-          ['<CR>']    = cmp.mapping.confirm { select = true },
+        ['<C-p>'] = { 'select_prev', 'fallback' },
+        ['<C-n>'] = { 'select_next', 'fallback' },
+
+        ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
+        ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+
+        ['<Tab>'] = { 'select_next', 'snippet_forward', 'fallback' },
+        ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
+      },
+
+      appearance = {
+        use_nvim_cmp_as_default = true,
+        nerd_font_variant = 'mono'
+      },
+
+      sources = {
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
+      },
+
+      completion = {
+        accept = {
+          auto_brackets = {
+            enabled = true,
+          },
         },
-        sources = {
-          { name = 'nvim_lsp' }, { name = 'luasnip' }, { name = 'path' },
+        menu = {
+          draw = {
+            treesitter = { 'lsp' }
+          }
         },
-      }
-    end
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 200,
+        },
+      },
+
+      signature = { enabled = true }
+    },
   },
 }
