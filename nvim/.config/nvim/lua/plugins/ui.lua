@@ -77,6 +77,9 @@ return {
       { "<leader>sc", function() Snacks.picker.commands() end, desc = "Snacks: Commands" },
     },
     init = function()
+      vim.ui.select = function(...) Snacks.picker.select(...) end
+      vim.ui.input = function(...) Snacks.input.input(...) end
+
       vim.api.nvim_create_autocmd("User", {
         pattern = "VeryLazy",
         callback = function()
