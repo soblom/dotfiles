@@ -96,9 +96,8 @@ function current_pwd {
 PROMPT_SEPARATOR='%{%B%}%{%F{202}%}▶%{%F{220}%}▶%{%F{190}%}▶'
 
 PROMPT='
-%{%f%k%b%}%
-%{%B%F{248}%}%n@$(box_name)%
-%{%F{245}%}%b in %{%B%F{172}%}$(current_pwd)
+%{%f%k%b%}
+%{%B%F{248}%}%n@$(box_name)%{%F{245}%}%b in %{%B%F{172}%}$(current_pwd)
 %{%F{072}%}$(prompt_char) ${PROMPT_SEPARATOR} %{%f%k%b%}'
 
 RPROMPT='%{%B%F{109}%}$(git_prompt_string) %E%{%f%k%b%}'
