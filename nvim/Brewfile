@@ -22,10 +22,12 @@ brew "tree-sitter"
 # imagemagick: Image processing (required by snacks.nvim for image previews)
 brew "imagemagick"
 
+# ghostscript: Rendering Postscript / PDF files (required by snacks.nvim for PDF preview)
+brew "ghostscript"
+
 # Lua Formatter
 brew "stylua"
 
 # Shell Formatter
 brew "shfmt"
-
 

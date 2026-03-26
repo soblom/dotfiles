@@ -1,7 +1,7 @@
 return {
   { 'ellisonleao/gruvbox.nvim', priority = 1000 },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  { 'NvChad/nvim-colorizer.lua', opts = { user_default_options = { names = false } } },
+  { 'NvChad/nvim-colorizer.lua', opts = { options = { parsers = { names = { enable = false } } } } },
   {
     'nvim-lualine/lualine.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
